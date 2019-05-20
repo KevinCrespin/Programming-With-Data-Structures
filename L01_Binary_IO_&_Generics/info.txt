@@ -1,0 +1,31 @@
+CS 2013 Lab 1: Binary I/O and Generics
+
+Turn in your .java files.  Zip the persistence1 and persistence2 packages
+
+1). Step 1, 80 points: Create a Java application that meets the following specifications. Write whatever public and private methods are necessary. 
+Put all of these classes in a package called persistence1.
+
+* Student has a String name, a double GPA, and a reasonable equals() method.
+* Course has a String name, an ArrayList of Students, and a reasonable equals() method. It will also need a method to add a Student.
+* PersisterImpl < T > (the extra spaces around the T just prevent your browser from parsing the type parameter as an HTML tag while you are reading this assignment-don't put them in your code) uses binary file I/O to save and retrieve objects of any Serializable type T and lists of objects of type T. PersisterImpl < T > must implement the following interface:
+                           
+public interface Persister < T > {
+	public void saveObjectToFile(File f, T ob);	
+	public void saveListToFile(File f, List< T > myList);
+	public T readObjectFromFile(File f);
+	public List< T > readListFromFile(File f);
+}
+
+The save methods will need to deal with NotSerializableExceptions. Make sure that the read methods do not cause crashes if you attempt to read files that do not contain the anticipated objects.
+
+*Write a JUnit test case for PersisterImpl. Test to make sure PersisterImpl correctly saves and retrieves Students, lists of Students, Courses, and lists of Courses. 
+Make sure a Course's list of Students is correctly saved and retrieved. Test storage using one instance of PersisterImpl to save a file and a different instance to retrieve it, just as in a real-world application you need to save data, shut the application down, start it again, and load the file. The tests will be easiest if you make use of the .equals() methods in your classes to make sure the data you saved is the same as the data you retrieve. You do not need to provide a GUI for data entry, but you will need to write public getters and setters for the JUnit tests to use.
+
+2). Step 2, 15 points: Change the Student and Course classes and write new JUnit tests.
+
+*Copy the package persistence1 with all its contents to a new package, persistence2
+*Change the Student class in persistence2 so that it has two separate String variables for the student's first and last names
+*Change the Course class in persistence2 so that it contains a new method that calculates and returns the mean GPA of all the students in the class.
+*Change the JUnit tests in persistence2 appropriately.
+
+3). Step 3, 5 points. Answer this question in a plain text file: why do you think I made you do Step 2?

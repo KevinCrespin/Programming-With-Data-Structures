@@ -1,0 +1,39 @@
+CS 2013 Lab 4: Recursive Anagramizer
+
+Create an Anagramizer which takes a short phrase and returns a list of every anagram that is made up entirely of valid English words. Both the generation of the anagrams and the filtering step which keeps only anagrams which consist of English words should be done using recursion. There may be better ways to do these tasks, but this is an excerise in recursion.
+
+An anagram is a rearrangement of the characters in a string. For example, "way cool" is an anagram of "lacy woo". Most definitions allow you to add blank spaces arbitarily, but for this assignment just count any spaces that are part of the original String as characters in the String and don't add more. Also, use the String trim() method to drop spaces at the beginning or end of the anagrams; for example, "bait teas" will count as an anagram of "I eat bats" since the additional space can migrate to the beginning or end and be trimmed. We will soon learn a way to remove punctuation, but it is acceptable to simply use input phrases that do not contain punctuation. Use the String toLowerCase() or toUpperCase() on the input String, since ignoring case will create a larger number of meaningful anagrams.
+
+We will define "a valid English word" as one that is contained in the list of acceptable words for the board game Scrabble. This list is contained in the text file twl06.txt, linked from the course web page. Download it an put it in your Eclipse project.
+
+Here are descriptions of some of the methods you will need:
+
+* A method that parses the valid word file to a list of Strings. You may use a loop in the parsing method.
+* A nonrecursive method that prints the input String, makes the first call to the recursive anagramizer method, sends the result to the filter method, and prints the filtered result. You may use this code:
+
+private void anagramize(String inString) {
+	System.out.println("input string: " + inString);
+	List < String > l = filter(anagramizeRecursive(inString.toLowerCase()));
+	System.out.println("Anagrams: " + l);
+}
+					
+The code snippet above includes a declaration of a list of Strings. Your browser may not show the parameterizing type correctly because the angle braces make it look like an html tag.
+
+* A recursive method that takes a String as its argument and returns a list of Strings which includes all anagrams of the String. This method will contain a loop that generates each possible substring consisting of all but one character in the input String, ie the substring that omits the first letter, then the substring that omits the second letter, etc. Within the loop, the method calls itself recursively for each substring. For each String in the list returned by the recursive call, add the omitted character back to the end and add the String to the list to be returned. When the first instance of this method returns, the list will contain all anagrams of the original input String. It may help to work this out with a pencil and paper for a very short string (like "abc".) The most straightforward base case (termination condition for the recursion) is to return a list containing only a new empty String if the input String has length 0. If you want a challenge, try replacing this algorithm with one that uses only recursion, with no loops.
+
+* A nonrecursive method that starts the recursion for the filtering step. This method will take a list of Strings, consisting of the anagrams, as its argument. Use a loop that takes each String in the list, converts it to an array of Strings using String's split() method with a blank space as the argument, and then uses the array to provide values for a list of Strings. The result of this will be a list of Strings in which each String is a word from the anagram. Still inside the loop, call the recursive filter method for each of these Strings. In each case when it receives a non-null String as the return value fo the recursive filter method, it will add the String to the list which it returns.
+
+*A recursive filter method that takes a list of Strings and returns the following:
+**if all of the Strings in the list are contained in the list of valid words, return a single String made up of the Strings in the order in which they appear in the list
+**if any of the Strings in the list do not appear in the list of valid words, return null. This should be much more common than the first case.
+**If a list is received for which the last String is in the word list, this method should recursively call itself on a list consisting of all but the last word. If the recursive call returns a String (not null), add the last word back to the end of the String and return it. This method should not contain any loops.
+
+Don't reparse the file each time, search the word list in memory.
+
+The word list contains some acronyms, loan words that are only semi-commonly used in English, and archaic words. Be careful when you are testing the filtering method.
+
+* If you want a challenge, redesign the filtering and/or anagramizing step so that it does not use any loops at all. You will probably need to pass two lists (filter) or two Strings (anagramizer) as arguments to accomplish this.
+
+* You may use JOptionPane I/O, a JavaFX GUI, or console (System.out.println and Scanner) IO. Turn in the .java files and an executable .jar file. You are not required to turn in JUnit tests, but it will probably be much easier to solve this problem correctly with JUnit than by retyping input strings each time you recompile.
+
+* This application will be very computation-intensive, and the time the anagram generation takes will increase dramatically with each additional character. Test it with short strings like "way cool" and "fat cat". Strings longer than that will take a long time to process.

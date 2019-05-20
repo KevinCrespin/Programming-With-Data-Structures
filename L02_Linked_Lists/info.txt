@@ -1,0 +1,13 @@
+Lab 2: Linked Lists
+
+Begin with the linked list package linked to the course web page (links section).  The existing code is designed to avoid cycles.
+
+
+* Add a method public void addToCreateCycle(Node<T> nodeToAdd)  that allows the user to add a Node in a way that will create a cycle.
+* Write JUnit tests that create a) a list with no nodes; b) a list with nodes but no cycles; c) a list with only one node with its next 
+reference set to itself; d) a list with a cycle whose length (number of nodes involved in the cycle) is odd; e) a list with a cycle whose length is even.  
+The tests should use assertions to determine whether each list contains a cycle.  You do not need to determine where the cycle begins, only whether there is a cycle.
+
+
+Turn in the unchanged Node.java file, the edited SinglyLinkedList.java file, and your JUnit tests.  Don't zip or otherwise compress the files, 
+just upload the three files separately.

@@ -1,0 +1,15 @@
+CS 2013 Lab 3: Lists
+
+Turn in your .java files and a runnable .jar on CSNS.
+
+You may use the LinkedList and ArrayList classes that are included in the JDK for this assignment; you do not have to code your own list classes.
+
+Test binary search with an array, an array list, and a linked list. Write code to do the following:
+
+1). Read a text file, parse it to individual words, and separately save the words to an array, an array list, and a linked list. Many of the words will be duplicates; for example, "the" will likely appear multiple times if you read a large text file written in English. The best way to find the size of the array to create is to save to the lists first, then check the size of one of the lists.
+
+2). Code any type of sort you choose twice, one for an array and once for a list. If you have studied recursion, use quicksort; if not, insertion sort is probably the best choice. If the method takes a List as parameter, you can use the same code to sort and array list and a linked list.
+
+3). Code binary search twice; once for an array and once for a list.
+
+4).Adapt the Stopwatch code from the listcompare package on the web site to test and print out the time in milliseconds it takes to sort the array and each of the two lists (after a file has already been read) and to find and print out the time in milliseconds it takes to use binary search to see if the array and each of the two lists contains an arbitrary word taken from user input.
