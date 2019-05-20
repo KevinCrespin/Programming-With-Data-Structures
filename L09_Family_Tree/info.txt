@@ -1,0 +1,64 @@
+Create a FamilyTree data structure.  The FamilyTree is a structure of Nodes and has two roots. Do not be misled by the word "tree;" this is not a tree according to the definition used in CS.  It is somewhat like a linked list and somewhat like a tree.  FamiryTree implements the following interface:
+
+public interface FamilyTree {
+	public void add(Person self, Integer p1, Integer p2);
+	public Set < Node > getAll();
+	public Set < Person > getDescendants(int nodeNum);
+	public List < Person > getParents(int id);
+	public Person getPersonById(int id);
+	public List< Person > getPersonsByName(String lastName, String firstName);
+	public int size();
+}
+        	
+Person implements Comparable < Person > and has Strings for first name and last name, an .equals() method, getters, setters, and at least one constructor. It also has two GregorianCalendar references for date of birth and date of death. Person's toString() should be carefully thought out to show this information, including the dates, in a clear way. I am intentionally leaving it to you to look up how to work with GregorianCalendar, which is not as straightforward as you might expect.
+
+Review the material on LinkedLists to recall how a Node relates to its data object. Node implements Comparable < Node >, and also contains the following:
+
+* a unique id number. I suggest you provide the id with an instance variable in your FamilyTree implementation class that is incremented every time a Node is added to the tree. *Important*: I will use JUnit tests that assume the first node you add to your tree receives id 1, not 0.
+
+* a reference to one Person, the data value for this Node. I suggest you name the variable "self"
+two references to parent Nodes, although one or both of these may be null if the parents are not in the tree
+
+* a list of child Nodes containing zero or more references to the Nodes representing Self's children. Always instantiate the list when the Node is created.
+
+* any constructors, getters, setters, and other methods you find necessary
+
+* a toString() method that appends the node id in some clear way to the toString() from the Person the node represents (eg, "Node 1: Bob Smith")
+
+The two root nodes each have two null parent references, and a node may be inserted at any time with one or more null parents (this is what occurs when someone whose parents are not in the tree joins the family.)
+
+Here are instructions for the interface methods. The methods are listed in alphabetical order, but you might want to code them in some other order, since some of them will call others.
+
+* add() takes a Person and two Integers as parameters, creates a Node for that Person, and sets the parent references for the node to the nodes hat have the two Integers as ids. One or both of the Integers may be null. Be sure to write this method so that it does not raise a null pointer exception when the parameters are null, since you need to be able to add new Nodes representing people whose parents are not in the tree.
+
+* getAll() returns a Set containing all the nodes in the tree
+
+* getDescendants() return a Set of Persons, not nodes, containing all the descendants (not just children, but grandchildren, etc.) of the person whose Node id is sent as a parameter. Note that you can look up the Node number using getAll(). Implement this method as a Breadth First Search; see the material on BFS in the book and lecture notes to see how to design it.
+
+* getParents() returns a List of between zero and two Persons, not Nodes, representing the parents of the Person with the stated node id.
+
+* getPersonById() returns the Person whose node has the stated node id.
+
+* getPersonsByName() returns a list of any length containing all the Persons in the tree whose first *and* last names match the ones sent as parameters.
+
+* size() returns the number of nodes in the tree
+Write whatever private methods you need. My implementation of FamilyTree contains only one private method, getNodeById(), which is used by several of the public methods.
+
+You do not need to take user input for this assignment.  Test your code with thorough JUnit tests for all methods. Here is a model JUnit test:
+
+	@Test
+	public void testGetPersonById() {
+		Person adam = new Person("Johnson", "Adam", new GregorianCalendar(0,
+				01, 01), new GregorianCalendar(100, 12, 31));
+		Person eve = new Person("Johnson", "Eve", new GregorianCalendar(1,
+				01, 02), new GregorianCalendar(100, 1, 31));
+		Person cain = new Person("Johnson", "Cain", new GregorianCalendar(
+				21, 6, 30), new GregorianCalendar(38, 6, 30));
+
+		FamilyTree t = new FamilyTreeImpl(adam, eve);
+		t.add(cain, 1, 2);
+		assertEquals(t.getPersonById(3).getFirstName(), "Cain");
+	}
+			
+ 
+Turn in your .java files. 

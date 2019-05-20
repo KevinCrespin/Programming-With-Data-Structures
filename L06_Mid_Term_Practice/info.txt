@@ -1,0 +1,14 @@
+A palindrome, for the purposes of this assignment, is a string which, if converted to all upper case or all lower case and stripped of all non-alphabetic characters, is identical to its own mirror-image.  For example, "I", "Wow!", "Madam, I'm Adam", and "A man, a plan, a canal, Panama" are palindromes.
+
+Write an application that takes user input with a Scanner from the command line and reports whether the input String is a palindrome:
+
+*Write a method that takes a String as its parameter and returns a String that consists of the input String stripped of punctuation and converted to all-lower-case.
+
+*Determine whether a String is a palindrome this way.  Take the String produced by the method described above and put each Character onto both a Stack < Character > and a Queue < Character >.   Then remove each character from the stack and the queue and see if they match.  The String is a palindrome if every pair matches.
+
+*Make sure your code works correctly for Strings of length 0 or 1, which are always palindromes. 
+
+
+You may use recursion for this, but you are not required to.  An iterative version is likely much easier to code than a recursive version.
+
+Turn in your .java code, which will probably consist of only one class.  You do not need to create a .jar file for this problem.

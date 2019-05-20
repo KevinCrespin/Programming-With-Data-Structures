@@ -1,0 +1,31 @@
+CS 2013 Lab 5 TicTacToe With Stack; JavaFX Review
+
+Complete the implementation of a TicTacToe game in which moves are stored on a stack and may be undone and redone.  The user plays X against the application, which plays O.
+
+Begin with the TicTacToe example I use in CS2012, which is linked to the website for this class.  Change it as follows:
+
+* Add buttons the the GUI to let the user undo and redo moves. 
+* The sample code implements moves by indicating the Coordinate for the move.  Change this by creating a MoveImpl class which implements the following interface:
+
+
+// return the row number of the space occupied in the move
+
+public int getRow();
+
+// return the column number of the space occupied in the move
+
+public int getCol();
+
+//return the identity of the player who made the move
+
+public Player getPlayer();
+
+}
+
+* Each X move as well as each O move returned by the solver creates a Move object rather than just a Coordinate,  Push the Moves onto a stack as they are made.  As moves are undone, pop them from that stack and push them onto another stack.  As moves are redone, pop them form the undo stack and push them onto the original stack.  If the user, who is playing X, undoes a Move, the O Move that followed it must also be undone.  If X redoes a Move, the following O move must also be redone.
+
+* Improve the SolverImpl.  Currently, if no better moves are available, the Solver scans from top left to bottom right for an available corner space and, if it does not find one, similarly tries to choose an edge-center space.  Change this code so that, in cases when more than one corner space is available or if more than edge-center space is available, the SolverImpl chooses one at random. 
+
+Make sure you do not break the code that prevents the user from making moves after a victory has been achieved.  However, the user may undo and redo moves after a victory, which removes the indication in the GUI that the game is over.
+
+Turn in an executable .jar and a .zip of the entire src folder from your Eclipse project.

@@ -1,0 +1,17 @@
+CS 2013 Lab 11
+
+Begin with mazedemo.zip, which is linked to the course web page.  This code is similar to the recursive maze example from one of the lectures, but is refactored to put the solver code in a separate class.  Follow the following instructions:
+
+* Create an interface called MazeSolverStrategy with the public methods from MazeSolver
+
+* Make MazeSolver implement the interface, and rename it RecursiveDFSSolverStrategy.
+
+* Create a different implementation that is just like MazeSolver, but tries the neighbors out in a different order (this should be easy).  Name it RecursiveAltDFSSolverStrategy
+
+* Create another implementation that uses a breadth-first search.  Name it BFSSolverStrategy.  Note that, if there is more than one solution, BFS should find the best solution (or one of multiple equally-good best solutions), first.  You may use either iteration (a loop) or recursion for this strategy.
+
+* Create a JavaFX GUI for this application.  Most of what should be in the GUI is obvious.  Make sure that, when the maze has been solved, the user can clearly see which squares are on the solution path and that some very obvious message appears if the maze is unsolveable.  You may use hard-coded mazes.  You may also create randomized mazes or let the user create the maze in the GUI if you want to. Provide a solve button; don't call the solve method until the button is clicked.
+
+* Give the user a way to choose which solver s/he wants to use.
+
+You do not need to turn in a .jar for this assignment.

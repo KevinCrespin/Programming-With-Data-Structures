@@ -1,0 +1,18 @@
+CS 2013 Lab 10: Binary Search Tree
+
+Finish a partially implemented Binary Search Tree.  This does not need to be an AVL or other balanced tree.
+
+Begin with the code in bst.zip on the web site.  Complete the code as follows:
+
+Do not change Tree.java or AbstractTree.java.  We will use the same Tree.java, AbstractTree.java, and BSTTester.java we supplied.  If you change these files in your workspace, it is unlikely your code will compile for us.  If your code does not compile with those files exactly as we supplied them, you will receive no credit on this assignment. 
+
+* Complete the class BSTDelete.java so that its delete method correctly deletes a node from the tree using the algorithm described in the lecture (involving rightMost).  The method takes the tree root and a T data item.  If there is a node with that data, the method deletes the node and returns true.  Otherwise, it returns false.  Note the constructor call and the call to the delete method near the bottom of BST.java.
+
+* Complete the class BSTHeightMeter.java with its method getMaxHeight(), which uses recursion to find the height of the highest subtree of the current node.  Think about the algorithm for finding the largest item in an array, the traversal algorithms, and the recursive file lister in Lecture 6.  Note the constructor call and the call to getMaxHeight() at the very bottom of BST.java.
+
+* Complete the methods in BSTInorderIterator.
+
+* You will need to comment out a few lines in BST.java and uncomment others; instructions are in the code.
+Make sure all the JUnit tests we supplied in BSTTester.java succeed with your code.
+
+Turn in only your BST, BSTDelete.java, BSTHeightMeter.java, and BSTInorderIterator.java.

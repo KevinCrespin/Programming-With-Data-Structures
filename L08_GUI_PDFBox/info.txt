@@ -1,0 +1,15 @@
+CS 2013 Lab 8: Libraries, GUI Refresher
+
+Write an application that extracts text from .pdf files and creates bar charts of the number of occurrences of the most frequently used words in the text.
+
+* You will need an open source library, PDFBox.  Get the file pdfbox-app-2.0.12.jar.  You can add the library to your project's build path by using build path/configure build path/add external jar.  An example of adding a library to the build path in this way is found at the end of lecture 11. Once you have it working that way, consider trying Maven instead. Maven is a little more complex, but you are going to have to learn it sooner or later anyway.
+
+* Put your work in a package called lab8
+
+* Take user input with a Scanner to get the location of a .pdf file to search.
+
+* Design your charts so that they show the ten most frequently-used words in the .pdf. If the pdf contains ten or fewer different words, show all of them. If there are more than ten, show the ten most frequently used words. Make sure to test the application with a .pdf that does contain at least ten words and another that does not.    GUI Lecture #2, linked to the web site, has some examples of JavaFX charts.
+
+* You may want to start with the WordFrequency example, and then use the data from the map to set up a sorted list of objects of a class that contains a String and an Integer.
+
+Turn in an executable jar file as well as your java source files. Test your jar file to make sure it runs correctly before you turn it in!

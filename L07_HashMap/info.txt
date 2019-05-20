@@ -1,0 +1,27 @@
+CS 2013 Lab 7: Priority Queues and Maps
+
+Write an application that tracks monsters' meals.
+
+* Victims have String names, Integer IQs, and Integer appearance scores. All appearance scores are between 1 and 10; it is easy to set up the constructor and setters to ensure this. No IQ can be below 50 or above 200. Victim's toString() should show all the data in some reasonable format.
+
+* The monster attacks are coded in the class Carnage. There are two types of monsters, Vampires and Zombies, and they feed from PriorityQueues. Vampires, who are amorous, attack the most attractive people first. Zombies, who eat brains, attack the smartest people first. Zombies and Vampires never eat from the same queue, so when the monster type changes, just create a new priority queue that uses the new ordering. You will need to write at least one Comparator so that you can implement the queues in two different orders. You can either make Victim implement Comparable and handle the other sort order using a Comparator or just write two implementations of Comparator. You do not need to write Zombie and Vampire classes; use an enum for this.
+
+* The monsters take turns feeding from the queue in the same manner used by the children in the swingset example in the lecture notes, using a modulo operation inside a loop. However, you don't need to use Thread.sleep in this case.
+
+* Each time a monster attacks a Victim, an entry is made in a LinkedHashMap with the Victim as key and the monster number (see the swingset example) as value. The method monsterAttack() takes a List of Victims, the number of monsters, and the type of monster as parameters and returns the Map. The monsters will eat until all the victims have been consumed, and your program must work for any number of victims.
+
+* Write a driver class that creates a list of Victims and uses it to call monsterAttack(), then shows each entry in the Map it receives. You can hardcode the Victim data, but please don't name the victims after real people whom your classmates or I might know. Provide a way for the user to choose how many monsters are eating at the current time as well as which type of monster is feeding. This input should be in a loop, so that the user keeps returning to the menu after each queue of victims is consumed, although you may reuse the same list of hardcoded victims. Here is some sample output:
+
+Murgatroyd: intelligence 110, appearance 4 is eaten by ZOMBIE number 0
+Bob: intelligence 105, appearance 7 is eaten by ZOMBIE number 1
+Joe: intelligence 100, appearance 8 is eaten by ZOMBIE number 2
+Susie: intelligence 97, appearance 10 is eaten by ZOMBIE number 0
+Stan: intelligence 95, appearance 5 is eaten by ZOMBIE number 1
+Mary: intelligence 92, appearance 9 is eaten by ZOMBIE number 2
+                    
+The driver should also look up a few entries in the map individually, producing output like this:
+
+Harry was eaten by VAMPIRE number 1
+Priscilla was eaten by VAMPIRE number 3
+ 
+* Turn in your. java files and an executable .jar.
