@@ -18,7 +18,6 @@ E01-E05 Examples<br>
 L01-L11 Labs<br>
 M01-M03 Midterm and Final<br>
 Q05,06,09 Quiz<br>
-P01, ACM Random Stuff<br>
 
 ****************************************************************************************************************************
 Program descriptions available as info.txt on each application (Some don't have any)
