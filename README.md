@@ -13,7 +13,7 @@ software development.
 
 ****************************************************************************************************************************
 
-Content:
+Content:<br>
 E01-E05 Examples<br>
 L01-L11 Labs<br>
 M01-M03 Midterm and Final<br>
