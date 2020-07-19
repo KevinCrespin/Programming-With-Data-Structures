@@ -20,5 +20,5 @@ M01-M03 Midterm and Final<br>
 Q05,06,09 Quizes<br>
 
 ****************************************************************************************************************************
-Program descriptions available as info.txt on each application
-Code is not commented, and doesn't have any documentation.
+Program descriptions available as info.txt on each application.<br>
+Code is not commented, or have any documentation due to various reasons, including but not limited to lack of time while being coded, code is not meant to be revisited, commenting code for homework assigments can sometimes be useless.
